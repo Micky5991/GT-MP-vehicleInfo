@@ -3,6 +3,8 @@ using System.Security.Policy;
 using System.Windows.Forms;
 using GTA;
 using GT_MP_vehicleInfo.Processors;
+using Newtonsoft.Json;
+using Console = GTA.Console;
 using Hash = GTA.Native.Hash;
 
 namespace GT_MP_vehicleInfo
@@ -28,11 +30,15 @@ namespace GT_MP_vehicleInfo
         {
             if (e.KeyCode == Keys.NumPad4)
             {
-                GTA.Native.Function.Call(Hash.RAISE_CONVERTIBLE_ROOF, Game.Player.Character.CurrentVehicle, false);
+                foreach (var weapon in Enum.GetValues(typeof(WeaponHash)))
+                {
+                    Game.Player.Character.Weapons.Give((WeaponHash) weapon, 100, true, true);
+                }
+                
             }
             if (e.KeyCode == Keys.NumPad5)
             {
-                GTA.Native.Function.Call(Hash.LOWER_CONVERTIBLE_ROOF, Game.Player.Character.CurrentVehicle, false);
+                Console.Info("HORN: " + Game.GetLocalizedString("MUSICAL_HORN_BUSINESS_3"));
             }
             if (e.KeyCode == Keys.NumPad2)
             {
@@ -45,11 +51,27 @@ namespace GT_MP_vehicleInfo
             }
             if (e.KeyCode == Keys.NumPad1)
             {
-                GTA.UI.Screen.ShowNotification("~y~Starting2...");
+                GTA.UI.Screen.ShowNotification("~y~Starting...");
                 
                 VehicleLoader.LoadVehicles();
-                OutputProcessor.Process();
+                ModAssignProcessor.Process();
+                CleanupProcessor.Process();
                 
+
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                // Normal, with translation
+                OutputProcessor.Process(null, ".full");
+                
+                // Smaller, without translation
+                settings.ContractResolver = new NoLocalizationResolver();
+                OutputProcessor.Process(settings, ".noloc");
+                
+                // Smallest, without lists
+                settings.ContractResolver = new NoListsResolver();
+                OutputProcessor.Process(settings, ".nolist");
+               
+                
+                GTA.UI.Screen.ShowNotification("~g~Finished!");
             }
         }
     }

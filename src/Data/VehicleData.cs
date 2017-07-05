@@ -1,4 +1,6 @@
-﻿using GTA;
+﻿using System.Collections.Generic;
+using GTA;
+using Newtonsoft.Json;
 
 namespace GT_MP_vehicleInfo.Data
 {
@@ -14,10 +16,15 @@ namespace GT_MP_vehicleInfo.Data
 
         public bool convertible;
         public bool electric;
+        public bool trailer;
         //public bool neon;
         
         public int vehicleClass;
+        public string vehicleClassName;
         public string localizedVehicleClass;
+        
+        public Dictionary<int, ModTypeData> mods;
+        public VehicleLiveries liveries;
 
         public void Hash()
         {

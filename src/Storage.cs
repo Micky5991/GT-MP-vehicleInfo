@@ -8,7 +8,6 @@ namespace GT_MP_vehicleInfo
 {
     public class Storage
     {
-        
         public readonly Dictionary<int, VehicleData> vehicleStorage = new Dictionary<int, VehicleData>();
 
         public bool HasVehicle(VehicleData data)  => HasVehicle(data.hash);
