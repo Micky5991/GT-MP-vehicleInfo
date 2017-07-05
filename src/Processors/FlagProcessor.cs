@@ -21,7 +21,7 @@ namespace GT_MP_vehicleInfo.Processors
         {
             vehicle.convertible = !element.Element("animConvRoofName").IsEmpty &&
                                   element.Element("animConvRoofName").Value == "roof";
-            vehicle.manufacteurName = element.Element("vehicleMakeName").Value;
+            vehicle.manufacturerName = element.Element("vehicleMakeName").Value;
             vehicle.trailer = element.Element("type").Value == "VEHICLE_TYPE_TRAILER";
         }
         

@@ -8,7 +8,7 @@ namespace GT_MP_vehicleInfo.Processors
 
         public static void ProcessVehicle(VehicleData data)
         {
-            data.localizedManufacteur = Game.GetLocalizedString(data.manufacteurName);
+            data.localizedManufacturer = Game.GetLocalizedString(data.manufacturerName);
             data.localizedName = Game.GetLocalizedString(data.displayName);
             data.localizedVehicleClass = Game.GetLocalizedString("VEH_CLASS_" + data.vehicleClass);
         }

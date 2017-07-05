@@ -11,8 +11,8 @@ namespace GT_MP_vehicleInfo.Data
         public string name;
         public string displayName;
         public string localizedName;
-        public string manufacteurName;
-        public string localizedManufacteur;
+        public string manufacturerName;
+        public string localizedManufacturer;
 
         public bool convertible;
         public bool electric;
