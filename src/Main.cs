@@ -60,7 +60,13 @@ namespace GT_MP_vehicleInfo
                 
 
                 JsonSerializerSettings settings = new JsonSerializerSettings();
-                //settings.Formatting = Formatting.Indented;
+                settings.Formatting = Formatting.Indented;
+                
+                // Large, Indented (For research purposes)
+                OutputProcessor.Process(settings, ".ind");
+                
+                settings.Formatting = Formatting.None;
+                
                 // Normal, with translation
                 OutputProcessor.Process(settings, ".full");
                 

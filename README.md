@@ -65,6 +65,9 @@ Language | Last updated | Download | Filesize
 English | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-en.full.json) | 3.9 MB
 German | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-de.full.json) | 4.0 MB
 
+If you want to look into the structure of this file, we also have an indented version **DO NOT USE THIS IN AN PRODUCTIVE ENVIRONMENT!**
+[Download (8.4MB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo.ind.json)
+
 ## Installation
 ### Requirements
 - [ScriptHookV](http://www.dev-c.com/gtav/scripthookv/)
