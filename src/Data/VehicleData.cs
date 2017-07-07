@@ -23,6 +23,7 @@ namespace GT_MP_vehicleInfo.Data
         public string vehicleClassName;
         public string localizedVehicleClass;
         
+        public List<string> rewards = new List<string>();
         public Dictionary<int, ModTypeData> mods;
         public VehicleLiveries liveries;
 

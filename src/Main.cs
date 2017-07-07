@@ -59,8 +59,9 @@ namespace GT_MP_vehicleInfo
                 
 
                 JsonSerializerSettings settings = new JsonSerializerSettings();
+                //settings.Formatting = Formatting.Indented;
                 // Normal, with translation
-                OutputProcessor.Process(null, ".full");
+                OutputProcessor.Process(settings, ".full");
                 
                 // Smaller, without translation
                 settings.ContractResolver = new NoLocalizationResolver();
