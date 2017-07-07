@@ -1,4 +1,4 @@
-# vehicleInfo.json - Vehicle Information Library
+# vehicleInfo.json - Vehicle Information Library V1.1.0
 This ScriptHookV.NET3 script is intended to generate information about all vehicles available in GTA V. 
 
 ## Usecases
@@ -9,13 +9,50 @@ This ScriptHookV.NET3 script is intended to generate information about all vehic
 
 **And many more!**
 
+## Provided information
+```
+==> PER VEHICLE
+- Hash (uint)
+- ID (string)
+- Display name (string)
+- Localized name (string) [only full version]
+- Manufacturer display name (string) 
+- Localizedmanufacturer name (string) [only full version]
+​- Vehicle class (integer)
+​- Vehicle class display name (string)
+​- Localized vehicle class name (string) [only full version]
+​
+- Is convertible? (bool)
+- Is electric? (bool)
+​- Is trailer? (bool)​
+​- Has neon? (bool) [New in 1.1.0]​
+​
+​- Rewards on enter: (string[]) [New in 1.1.0]
+​- Available mods: (object[integer]​​)
+​    ==> PER MODDABLE SLOT:
+​    - Amount of mods in this slot (integer)
+​    - list of available mods (object[integer])
+​        ==> PER MOD
+​        - Display name (string)
+​        - Localized name (string) [only full version]
+​        - Flags (string[]) [eg: for wheels: "chrome", "stock"]
+​
+​- Available liveries (object)
+​    - Amount of available liveries (integer)
+​    - list of available liveries (object[integer])
+​        ==> PER LIVERY
+​        - ID of the livery (integer)
+​        - Display name (string)
+​        - Localized name (string) [only full version]
+```
+
 ## Precreated files
 ### Smaller files
 
 Description | Last updated | Download | Filesize
 --- | --- | --- | ---:
-Without localization* | 6th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.0.0/vehicleInfo.noloc.json) | 2.3 MB
-Without listing** | 6th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.0.0/vehicleInfo.nolist.json) | 190 KB
+Without localization* | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo.noloc.json) | 2.3 MB
+Without listing** | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo.nolist.json) | 190 KB
 
 *This version can be used if you want to create your own gametexts with `API.getGameText(string name);` [GT-MP Wiki entry](https://wiki.gt-mp.net/index.php?title=GetGameText)
 
@@ -25,8 +62,8 @@ Without listing** | 6th July 2017 | [Click here](https://github.com/Micky5991/GT
 
 Language | Last updated | Download | Filesize
 --- | --- | --- | ---:
-English | 6th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.0.0/vehicleInfo-en.full.json) | 4.0 MB
-German | 6th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.0.0/vehicleInfo-de.full.json) | 4.1 MB
+English | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-en.full.json) | 4.0 MB
+German | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-de.full.json) | 4.1 MB
 
 ## Installation
 ### Requirements
@@ -36,7 +73,8 @@ German | 6th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicle
 _todo_
 
 ## Known issues
-* In the non-/localized versions are some horn-information missing.
+* In the non-/localized versions are some horn-information missing. This will be fixed, when i find the right display name.
+* Not-moddable vehicles have sometimes missing display/localization names. This is not fixable
 
 ## Thanks to
 [SyBozz](https://gt-mp.net/user/2198-sybozz/) for assisting me and collecting some further information
