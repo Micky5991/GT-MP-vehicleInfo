@@ -17,7 +17,7 @@ namespace GT_MP_vehicleInfo.Data
         public bool convertible;
         public bool electric;
         public bool trailer;
-        //public bool neon;
+        public bool neon;
         
         public int vehicleClass;
         public string vehicleClassName;
