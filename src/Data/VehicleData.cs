@@ -13,15 +13,15 @@ namespace GT_MP_vehicleInfo.Data
         public string localizedName;
         public string manufacturerName;
         public string localizedManufacturer;
+        
+        public int vehicleClass;
+        public string vehicleClassName;
+        public string localizedVehicleClass;
 
         public bool convertible;
         public bool electric;
         public bool trailer;
         public bool neon;
-        
-        public int vehicleClass;
-        public string vehicleClassName;
-        public string localizedVehicleClass;
         
         public List<string> rewards = new List<string>();
         public Dictionary<int, ModTypeData> mods;
