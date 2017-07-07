@@ -52,7 +52,7 @@ This ScriptHookV.NET3 script is intended to generate information about all vehic
 Description | Last updated | Download | Filesize
 --- | --- | --- | ---:
 Without localization* | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo.noloc.json) | 2.3 MB
-Without listing** | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo.nolist.json) | 190 KB
+Without listing** | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo.nolist.json) | 204 KB
 
 *This version can be used if you want to create your own gametexts with `API.getGameText(string name);` [GT-MP Wiki entry](https://wiki.gt-mp.net/index.php?title=GetGameText)
 
@@ -62,8 +62,8 @@ Without listing** | 7th July 2017 | [Click here](https://github.com/Micky5991/GT
 
 Language | Last updated | Download | Filesize
 --- | --- | --- | ---:
-English | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-en.full.json) | 4.0 MB
-German | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-de.full.json) | 4.1 MB
+English | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-en.full.json) | 3.9 MB
+German | 7th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.1.0/vehicleInfo-de.full.json) | 4.0 MB
 
 ## Installation
 ### Requirements
