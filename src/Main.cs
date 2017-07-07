@@ -55,6 +55,7 @@ namespace GT_MP_vehicleInfo
                 
                 VehicleLoader.LoadVehicles();
                 ModAssignProcessor.Process();
+                LocalizationProcessor.Process();
                 CleanupProcessor.Process();
                 
 

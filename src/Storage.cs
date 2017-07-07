@@ -33,8 +33,6 @@ namespace GT_MP_vehicleInfo
         {
             FlagProcessor.Process(vehicleData, element);
             VehicleIngameProcessor.Process(vehicleData);
-            LocalizationProcessor.ProcessVehicle(vehicleData);
-            
         }
     }
 }
