@@ -62,8 +62,7 @@ namespace GT_MP_vehicleInfo.Processors
 			    vLivery.list.Add(i, new LiveryData
 			    {
 				    id = i, 
-				    name = name,
-				    localizedName = Game.GetLocalizedString(name)
+				    name = name
 			    });
 		    }
 		    
@@ -85,8 +84,7 @@ namespace GT_MP_vehicleInfo.Processors
 
 				    var modObj = new ModData
 				    {
-					    name = name,
-					    localizedName = Game.GetLocalizedString(name)
+					    name = name
 				    };
 				    data.list.Add(i, modObj);
 				    ApplyFlags(modObj, mod.ModType, mod.ModCount, i);

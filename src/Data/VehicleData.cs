@@ -33,7 +33,14 @@ namespace GT_MP_vehicleInfo.Data
 
         public void Localize()
         {
-            
+            this.localizedManufacturer = Game.GetLocalizedString(this.manufacturerName);
+            this.localizedName         = Game.GetLocalizedString(this.displayName);
+            this.localizedVehicleClass = Game.GetLocalizedString("VEH_CLASS_" + this.vehicleClass);
+
+            this.liveries?.Localize();
+
+            if (this.mods == null) return;
+            foreach (var mod in this.mods.Values) mod.Localize();
         }
     }
 }
