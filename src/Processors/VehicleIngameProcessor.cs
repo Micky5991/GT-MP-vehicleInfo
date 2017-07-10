@@ -38,7 +38,7 @@ namespace GT_MP_vehicleInfo.Processors
 	        var mods = ProcessVehicleMods(veh);
 	        var liveries = ProcessVehicleLiveries(veh);
 	            
-	        OutputProcessor.Process(vehicle.name, new VehicleCache
+	        OutputProcessor.Process(@"gen_vdata/" + vehicle.name + ".json", new VehicleCache
 	        {
 		        mods = mods,
 		        liveries = liveries

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Security.Policy;
 using System.Windows.Forms;
 using GTA;
@@ -28,6 +29,7 @@ namespace GT_MP_vehicleInfo
 
         private void OnKeyUp(object sender, KeyEventArgs e)
         {
+            /*
             if (e.KeyCode == Keys.NumPad4)
             {
                 foreach (var weapon in Enum.GetValues(typeof(WeaponHash)))
@@ -36,19 +38,13 @@ namespace GT_MP_vehicleInfo
                 }
                 
             }
-            if (e.KeyCode == Keys.NumPad5)
-            {
-                Console.Info("HORN: " + Game.GetLocalizedString("MUSICAL_HORN_BUSINESS_3"));
-            }
             if (e.KeyCode == Keys.NumPad2)
             {
                 Vehicle veh = World.CreateVehicle((VehicleHash) Game.GenerateHash(Game.GetUserInput()),
                     Game.Player.Character.Position + Game.Player.Character.ForwardVector * 3.0f,
                     Game.Player.Character.Heading);
                 veh.PlaceOnGround();
-
-                
-            }
+            }*/
             if (e.KeyCode == Keys.NumPad1)
             {
                 GTA.UI.Screen.ShowNotification("~y~Starting...");
@@ -59,28 +55,23 @@ namespace GT_MP_vehicleInfo
                 CleanupProcessor.Process();
                 
 
-                JsonSerializerSettings settings = new JsonSerializerSettings();
-                settings.Formatting = Formatting.Indented;
-                
-                // Large, Indented (For research purposes)
-                OutputProcessor.Process(settings, ".ind");
-                
-                settings.Formatting = Formatting.None;
-                
-                // Normal, with translation
-                OutputProcessor.Process(settings, ".full");
-                
-                // Smaller, without translation
-                settings.ContractResolver = new NoLocalizationResolver();
-                OutputProcessor.Process(settings, ".noloc");
-                
-                // Smallest, without lists
-                settings.ContractResolver = new NoListsResolver();
-                OutputProcessor.Process(settings, ".nolist");
+                OutputProcessor.OutputVehicleInfo();
                
                 
                 GTA.UI.Screen.ShowNotification("~g~Finished!");
             }
+        }
+        
+        public static string GetPath(string path, bool create = false)
+        {
+            string resultPath = Path.Combine(BasePath, path);
+            Console.Info(resultPath);
+            if (create)
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(resultPath));
+            }
+            
+            return resultPath;
         }
     }
 }

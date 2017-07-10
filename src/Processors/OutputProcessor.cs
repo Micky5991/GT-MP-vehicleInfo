@@ -8,32 +8,39 @@ namespace GT_MP_vehicleInfo.Processors
     public class OutputProcessor
     {
 
-        public static void Process(JsonSerializerSettings settings, string extension)
+        public static void OutputVehicleInfo()
         {
-            string payload = JsonConvert.SerializeObject(Main.Storage.vehicleStorage, settings);
-            
-            try
-            {
-                string fileName = Path.Combine(Main.BasePath, "output/vehicleInfo" + extension + ".json");
-                Directory.CreateDirectory(Path.GetDirectoryName(fileName));
-                File.WriteAllText(fileName, payload);
-            }
-            catch (IOException e)
-            {
-                Console.Error("AN ERROR OCCURED: " + e.Message);
-            }
-            
-        }
-        public static void Process(string name, object data)
-        {
+            JsonSerializerSettings settings = new JsonSerializerSettings {Formatting = Formatting.Indented};
 
-            string payload = JsonConvert.SerializeObject(data);
+            // Large, Indented (For research purposes)
+            OutputToJson(settings, ".ind");
+                
+            settings.Formatting = Formatting.None;
+                
+            // Normal, with translation
+            OutputToJson(settings, ".full");
+                
+            // Smaller, without translation
+            settings.ContractResolver = new NoLocalizationResolver();
+            OutputToJson(settings, ".noloc");
+                
+            // Smallest, without lists
+            settings.ContractResolver = new NoListsResolver();
+            OutputToJson(settings, ".nolist");
+        }
+        
+        private static void OutputToJson(JsonSerializerSettings settings, string extension)
+        {
+            Process(@"output/vehicleInfo" + extension + ".json", Main.Storage.vehicleStorage, settings);
+        }
+        
+        public static void Process(string path, object data, JsonSerializerSettings settings = null)
+        {
+            string payload = JsonConvert.SerializeObject(data, settings);
             
             try
             {
-                string fileName = Path.Combine(Main.BasePath, "gen_vdata/" + name + ".json");
-                Directory.CreateDirectory(Path.GetDirectoryName(fileName));
-                File.WriteAllText(fileName, payload);
+                File.WriteAllText(Main.GetPath(path, true), payload);
             }
             catch (IOException e)
             {
