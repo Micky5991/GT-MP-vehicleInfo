@@ -47,6 +47,9 @@ namespace GT_MP_vehicleInfo.Processors
             {
                 Process(@"output/vehicles-" + Main.languageCode + "/" + entry.Key + ".json", entry.Value);
             }
+            
+            // COMPRESS FILES
+            System.IO.Compression.ZipFile.CreateFromDirectory(Main.GetPath("output/vehicles-" + Main.languageCode + "/"), Main.GetPath("output/vehicleInfo-" + Main.languageCode + ".zip"));
         }
         
         private static void OutputToJson(JsonSerializerSettings settings, string extension)

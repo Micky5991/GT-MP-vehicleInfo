@@ -68,12 +68,7 @@ namespace GT_MP_vehicleInfo
         public static string GetPath(string path, bool create = false)
         {
             string resultPath = Path.Combine(BasePath, path);
-            Console.Info(resultPath);
-            if (create)
-            {
-                Directory.CreateDirectory(Path.GetDirectoryName(resultPath));
-            }
-            
+            if (create)Directory.CreateDirectory(Path.GetDirectoryName(resultPath));
             return resultPath;
         }
     }
