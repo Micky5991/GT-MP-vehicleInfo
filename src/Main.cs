@@ -15,6 +15,7 @@ namespace GT_MP_vehicleInfo
 
         public static readonly string BasePath = @"scripts/vehicleinfo/";
         public static readonly Storage Storage = new Storage();
+        public static string languageCode = "";
 
         public Main()
         {
@@ -47,6 +48,8 @@ namespace GT_MP_vehicleInfo
             }*/
             if (e.KeyCode == Keys.NumPad1)
             {
+                if (string.IsNullOrEmpty(languageCode)) languageCode = Game.GetUserInput("de");
+                
                 GTA.UI.Screen.ShowNotification("~y~Starting...");
                 
                 VehicleLoader.LoadVehicles();

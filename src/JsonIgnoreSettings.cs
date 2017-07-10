@@ -6,6 +6,19 @@ using Newtonsoft.Json.Serialization;
 
 namespace GT_MP_vehicleInfo
 {
+    class GeneralResolver : DefaultContractResolver
+    {
+        protected override JsonProperty CreateProperty(MemberInfo member,
+            MemberSerialization
+                memberSerialization)
+        {
+            var property = base.CreateProperty(member, memberSerialization);
+
+            property.ShouldSerialize = propInstance => !property.UnderlyingName.StartsWith("Normalized");
+            return property;
+        }
+    }
+    
     class NoLocalizationResolver : DefaultContractResolver
     {
         protected override JsonProperty CreateProperty(MemberInfo member,
@@ -14,7 +27,7 @@ namespace GT_MP_vehicleInfo
         {
             var property = base.CreateProperty(member, memberSerialization);
 
-            property.ShouldSerialize = propInstance => !property.UnderlyingName.StartsWith("localized");
+            property.ShouldSerialize = propInstance => !property.UnderlyingName.StartsWith("Normalized") && !property.UnderlyingName.StartsWith("localized");
             return property;
         }
     }
@@ -27,7 +40,7 @@ namespace GT_MP_vehicleInfo
         {
             var property = base.CreateProperty(member, memberSerialization);
 
-            property.ShouldSerialize = propInstance => !(property.UnderlyingName.StartsWith("localized") || property.UnderlyingName == "list" );
+            property.ShouldSerialize = propInstance =>  !property.UnderlyingName.StartsWith("Normalized") && !(property.UnderlyingName.StartsWith("localized") || property.UnderlyingName == "list" );
             return property;
         }
     }

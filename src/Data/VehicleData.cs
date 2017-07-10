@@ -22,6 +22,7 @@ namespace GT_MP_vehicleInfo.Data
         public bool electric;
         public bool trailer;
         public bool neon;
+        public VehicleDimensions dimensions;
         
         public List<string> rewards = new List<string>();
         public Dictionary<int, ModTypeData> mods;

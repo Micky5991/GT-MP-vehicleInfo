@@ -22,6 +22,7 @@ namespace GT_MP_vehicleInfo.Processors
 
                     vehicle.mods = cache.mods;
                     vehicle.liveries = cache.liveries;
+                    vehicle.dimensions = cache.dimensions;
                 }
                 catch (Exception e)
                 {

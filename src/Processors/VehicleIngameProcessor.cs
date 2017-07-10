@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using GTA;
+using GTA.Math;
 using GTA.Native;
 using GT_MP_vehicleInfo.Data;
 
@@ -15,6 +16,7 @@ namespace GT_MP_vehicleInfo.Processors
             vehicle.vehicleClass = (int) Vehicle.GetModelClass(vehicle.hash);
 	        vehicle.vehicleClassName = "VEH_CLASS_" + vehicle.vehicleClass;
             vehicle.displayName = Vehicle.GetModelDisplayName(vehicle.hash);
+	        
 
             if (File.Exists(Path.Combine(Main.BasePath, "gen_vdata/") + vehicle.name + ".json")) return;
             
@@ -30,23 +32,33 @@ namespace GT_MP_vehicleInfo.Processors
             Vehicle veh = World.CreateVehicle(vehicle.hash,
                 Game.Player.Character.Position + Game.Player.Character.ForwardVector * 3.0f,
                 Game.Player.Character.Rotation.Z + 90f);
-            
+	        
             Script.Wait(25);
 
 	        if (veh == null) return;
-	        
-	        var mods = ProcessVehicleMods(veh);
-	        var liveries = ProcessVehicleLiveries(veh);
 	            
 	        OutputProcessor.Process(@"gen_vdata/" + vehicle.name + ".json", new VehicleCache
 	        {
-		        mods = mods,
-		        liveries = liveries
+		        mods = ProcessVehicleMods(veh),
+		        liveries = ProcessVehicleLiveries(veh),
+		        dimensions = GetVehicleDimensions(veh.Model.Hash)
 	        });
 	            
 	        veh.Delete();
 	        Script.Wait(150);
         }
+
+	    private static VehicleDimensions GetVehicleDimensions(int hash)
+	    {
+
+		    Vector3 min, max;
+		    unsafe
+		    {
+			    Function.Call(Hash.GET_MODEL_DIMENSIONS, hash, &min, &max);
+		    }
+		    
+			return new VehicleDimensions{ min = min, max = max};
+	    }
 
 	    private static VehicleLiveries ProcessVehicleLiveries(Vehicle vehicle)
 	    {
