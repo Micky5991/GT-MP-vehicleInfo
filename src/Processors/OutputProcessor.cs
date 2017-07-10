@@ -49,7 +49,7 @@ namespace GT_MP_vehicleInfo.Processors
             }
             
             // COMPRESS FILES
-            System.IO.Compression.ZipFile.CreateFromDirectory(Main.GetPath("output/vehicles-" + Main.languageCode + "/"), Main.GetPath("output/vehicleInfo-" + Main.languageCode + ".zip"));
+            System.IO.Compression.ZipFile.CreateFromDirectory(Main.GetPath("output/vehicleInfo-" + Main.languageCode + "/"), Main.GetPath("output/vehicleInfo-" + Main.languageCode + ".zip"));
         }
         
         private static void OutputToJson(JsonSerializerSettings settings, string extension)
