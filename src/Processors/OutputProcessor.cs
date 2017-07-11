@@ -45,11 +45,13 @@ namespace GT_MP_vehicleInfo.Processors
         {
             foreach (var entry in Main.Storage.vehicleStorage)
             {
-                Process(@"output/vehicles-" + Main.languageCode + "/" + entry.Key + ".json", entry.Value);
+                Process(@"output/vehicleInfo-" + Main.languageCode + "/" + entry.Key + ".json", entry.Value);
             }
             
             // COMPRESS FILES
-            System.IO.Compression.ZipFile.CreateFromDirectory(Main.GetPath("output/vehicleInfo-" + Main.languageCode + "/"), Main.GetPath("output/vehicleInfo-" + Main.languageCode + ".zip"));
+            var zipfile = Main.GetPath("output/vehicleInfo-" + Main.languageCode + ".zip");
+            if(File.Exists(zipfile)) File.Delete(zipfile);
+            System.IO.Compression.ZipFile.CreateFromDirectory(Main.GetPath("output/vehicleInfo-" + Main.languageCode + "/"), zipfile);
         }
         
         private static void OutputToJson(JsonSerializerSettings settings, string extension)
