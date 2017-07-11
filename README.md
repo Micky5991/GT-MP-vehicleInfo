@@ -1,4 +1,4 @@
-# vehicleInfo.json - Vehicle Information Library V1.2.0
+# vehicleInfo.json - Vehicle Information Library V1.2.1
 This ScriptHookV.NET3 script is intended to generate information about all vehicles available in GTA V. 
 
 ## Usecases
@@ -52,8 +52,11 @@ This ScriptHookV.NET3 script is intended to generate information about all vehic
 ```
 
 ## Changelogs
-### V 1.2.0
+### V 1.2.1
+* Fixed .ZIP-creation
+* Fixed neon-property - *It should give the right value now*
 
+### V 1.2.0
 * Added .ZIP option with all vehicles in seperate files. *(<intHash>.json)*
 * Added dimensions to general information *(min-, max-Vector3)*
 
@@ -62,8 +65,8 @@ This ScriptHookV.NET3 script is intended to generate information about all vehic
 
 Description | Last updated | Download | Filesize
 --- | --- | --- | ---:
-Without localization* | 10th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.0/vehicleInfo.noloc.json) | 2.3 MB
-Without listing** | 10th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.0/vehicleInfo.nolist.json) | 204 KB
+Without localization* | 11th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.1/vehicleInfo.noloc.json) | 2.3 MB
+Without listing** | 11th July 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.1/vehicleInfo.nolist.json) | 204 KB
 
 *This version can be used if you want to create your own gametexts with `API.getGameText(string name);` [GT-MP Wiki entry](https://wiki.gt-mp.net/index.php?title=GetGameText)
 
@@ -73,13 +76,13 @@ Without listing** | 10th July 2017 | [Click here](https://github.com/Micky5991/G
 
 Language | Last updated | Single file | Multiple files
 --- | --- | --- | ---:
-English | 10th July 2017 | [JSON (3.9 MB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.0/vehicleInfo-en.full.json) | [ZIP (690 KB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.0/vehicleInfo-en.zip)
-German | 10th July 2017 | [JSON (4.0 MB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.0/vehicleInfo-de.full.json) | [ZIP (718 KB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.0/vehicleInfo-de.zip)
+English | 11th July 2017 | [JSON (3.9 MB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.1/vehicleInfo-en.full.json) | [ZIP (690 KB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.1/vehicleInfo-en.zip)
+German | 11th July 2017 | [JSON (4.0 MB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.1/vehicleInfo-de.full.json) | [ZIP (718 KB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.1/vehicleInfo-de.zip)
 
 If you want to look into the structure of this file, we also have an indented version:
 
 **DO NOT USE THIS IN AN PRODUCTIVE ENVIRONMENT!**
-[Download (8.2MB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.0/vehicleInfo.ind.json)
+[Download (8.2MB)](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.2.1/vehicleInfo.ind.json)
 
 ## Installation
 ### Requirements
