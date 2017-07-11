@@ -7,5 +7,6 @@ namespace GT_MP_vehicleInfo.Data
         public Dictionary<int, ModTypeData> mods;
         public VehicleLiveries liveries;
         public VehicleDimensions dimensions;
+        public bool neon;
     }
 }

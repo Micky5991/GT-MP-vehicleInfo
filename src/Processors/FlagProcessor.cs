@@ -21,7 +21,7 @@ namespace GT_MP_vehicleInfo.Processors
             string[] flags = element.Element("flags").Value.Split(' ');
 
             vehicle.electric = flags.Contains("FLAG_IS_ELECTRIC");
-            vehicle.neon     = flags.Contains("FLAG_CAN_HAVE_NEONS");
+            //vehicle.neon     = flags.Contains("FLAG_CAN_HAVE_NEONS"); // NOT ALL VEHICLES...
         }
 
         public static void ProcessSingleData(VehicleData vehicle, XElement element)

@@ -41,7 +41,8 @@ namespace GT_MP_vehicleInfo.Processors
 	        {
 		        mods = ProcessVehicleMods(veh),
 		        liveries = ProcessVehicleLiveries(veh),
-		        dimensions = GetVehicleDimensions(veh.Model.Hash)
+		        dimensions = GetVehicleDimensions(veh.Model.Hash),
+		        neon = veh.Mods.HasNeonLights
 	        });
 	            
 	        veh.Delete();
