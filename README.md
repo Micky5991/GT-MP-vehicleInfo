@@ -83,7 +83,7 @@ This ScriptHookV.NET3 script is intended to generate information about all vehic
 
 Description | Last updated | Download | Filesize
 --- | --- | --- | ---:
-Without localization* | 8th August 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.3.0/vehicleInfo.noloc.json) | 2.3 MB
+Without localization* | 8th August 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.3.0/vehicleInfo.noloc.json) | 2.8 MB
 Without listing** | 8th August 2017 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.3.0/vehicleInfo.nolist.json) | 780 KB
 
 *This version can be used if you want to create your own gametexts with `API.getGameText(string name);` [GT-MP Wiki entry](https://wiki.gt-mp.net/index.php?title=GetGameText)
