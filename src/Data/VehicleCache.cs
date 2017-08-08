@@ -8,5 +8,6 @@ namespace GT_MP_vehicleInfo.Data
         public VehicleLiveries liveries;
         public VehicleDimensions dimensions;
         public bool neon;
+        public Dictionary<string, int> bones;
     }
 }

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using GTA;
 using GTA.Math;
 using GTA.Native;
@@ -10,14 +12,26 @@ namespace GT_MP_vehicleInfo.Processors
     public class VehicleIngameProcessor
     {
         public static int counter;
+
+	    private static List<string> vehicleBones = LoadVehicleBones().ToList();
         
         public static void Process(VehicleData vehicle)
         {
             vehicle.vehicleClass = (int) Vehicle.GetModelClass(vehicle.hash);
 	        vehicle.vehicleClassName = "VEH_CLASS_" + vehicle.vehicleClass;
             vehicle.displayName = Vehicle.GetModelDisplayName(vehicle.hash);
-	        
 
+	        vehicle.maxSpeed = Function.Call<float>(Hash._GET_VEHICLE_MODEL_MAX_SPEED, vehicle.hash);
+	        vehicle.maxBraking = Function.Call<float>(Hash.GET_VEHICLE_MODEL_MAX_BRAKING, vehicle.hash);
+	        vehicle.maxTraction = Function.Call<float>(Hash.GET_VEHICLE_MODEL_MAX_TRACTION, vehicle.hash);
+	        vehicle.maxAcceleration = Function.Call<float>(Hash.GET_VEHICLE_MODEL_ACCELERATION, vehicle.hash);
+	        vehicle._0xBFBA3BA79CFF7EBF = Function.Call<float>((Hash) Convert.ToUInt64("0xBFBA3BA79CFF7EBF", 16), vehicle.hash);
+	        vehicle._0x53409B5163D5B846 = Function.Call<float>((Hash) Convert.ToUInt64("0x53409B5163D5B846", 16), vehicle.hash);
+	        vehicle._0xC6AD107DDC9054CC = Function.Call<float>((Hash) Convert.ToUInt64("0xC6AD107DDC9054CC", 16), vehicle.hash);
+	        vehicle._0x5AA3F878A178C4FC = Function.Call<float>((Hash) Convert.ToUInt64("0x5AA3F878A178C4FC", 16), vehicle.hash);
+	        vehicle.maxNumberOfPassengers = Function.Call<int>((Hash) Convert.ToUInt64("0x2AD93716F184EDA4", 16), vehicle.hash) - 1;
+	        vehicle.maxOccupants = Function.Call<int>((Hash) Convert.ToUInt64("0x2AD93716F184EDA4", 16), vehicle.hash);
+	        
             if (File.Exists(Path.Combine(Main.BasePath, "gen_vdata/") + vehicle.name + ".json")) return;
             
             if (counter++ == 0)
@@ -42,12 +56,38 @@ namespace GT_MP_vehicleInfo.Processors
 		        mods = ProcessVehicleMods(veh),
 		        liveries = ProcessVehicleLiveries(veh),
 		        dimensions = GetVehicleDimensions(veh.Model.Hash),
+		        bones = GetVehicleBones(veh),
 		        neon = veh.Mods.HasNeonLights
 	        });
 	            
 	        veh.Delete();
 	        Script.Wait(150);
         }
+
+	    public static IEnumerable<string> LoadVehicleBones()
+	    {
+		    using (var reader = new StreamReader(Main.GetPath(@"vehicleBones.txt")))
+		    {
+			    string line;
+			    while ((line = reader.ReadLine()) != null)
+			    {
+				    yield return line;
+			    }
+		    }
+	    }
+
+	    private static Dictionary<string, int> GetVehicleBones(Vehicle vehicle)
+	    {
+		    var bones = new Dictionary<string, int>();
+
+		    foreach (string vehicleBone in vehicleBones)
+		    {
+			    var bone = vehicle.Bones[vehicleBone];
+			    if (bone.IsValid) bones.Add(vehicleBone, bone.Index);
+		    }
+		    
+		    return bones;
+	    }
 
 	    private static VehicleDimensions GetVehicleDimensions(int hash)
 	    {

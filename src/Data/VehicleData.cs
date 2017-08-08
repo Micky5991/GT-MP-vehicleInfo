@@ -23,6 +23,19 @@ namespace GT_MP_vehicleInfo.Data
         public bool trailer;
         public bool neon;
         public VehicleDimensions dimensions;
+        public Dictionary<string, int> bones;
+
+        public float maxSpeed;
+        public float maxBraking;
+        public float maxTraction;
+        public float maxAcceleration;
+        public float _0xBFBA3BA79CFF7EBF;
+        public float _0x53409B5163D5B846;
+        public float _0xC6AD107DDC9054CC;
+        public float _0x5AA3F878A178C4FC;
+        public int maxNumberOfPassengers;
+        public int maxOccupants;
+        
         
         public List<string> rewards = new List<string>();
         public Dictionary<int, ModTypeData> mods;

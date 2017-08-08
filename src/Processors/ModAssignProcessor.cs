@@ -24,6 +24,7 @@ namespace GT_MP_vehicleInfo.Processors
                     vehicle.liveries = cache.liveries;
                     vehicle.dimensions = cache.dimensions;
                     vehicle.neon = cache.neon;
+                    vehicle.bones = cache.bones;
                 }
                 catch (Exception e)
                 {
