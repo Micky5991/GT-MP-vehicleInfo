@@ -124,7 +124,7 @@ namespace GT_MP_vehicleInfo.Processors
 
 	    private static Dictionary<int, ModTypeData> ProcessVehicleMods(Vehicle veh)
 	    {
-		    Dictionary<int, ModTypeData> modTypeData = new Dictionary<int, ModTypeData>();
+		    SortedDictionary<int, ModTypeData> modTypeData = new SortedDictionary<int, ModTypeData>();
 		    veh.Mods.InstallModKit();
 		    foreach (var mod in veh.Mods.GetAllMods())
 		    {
@@ -145,7 +145,28 @@ namespace GT_MP_vehicleInfo.Processors
 
 			    modTypeData.Add((int) mod.ModType, data);
 		    }
-		    return modTypeData;
+		    
+		    AddHardCodedMods(modTypeData);
+		    
+		    return modTypeData.ToDictionary(x => x.Key, y => y.Value);
+	    }
+
+	    public static void AddHardCodedMods(SortedDictionary<int, ModTypeData> modTypeDatas)
+	    {
+		    // LIGHTS
+		    var modType = new ModTypeData {amount = 2};
+		    
+		    modType.list.Add(0, new ModData{ name = "CMOD_LGT_0"});
+		    modType.list.Add(1, new ModData{ name = "CMOD_LGT_1"});
+		    
+		    modTypeDatas.Add(22, modType);
+		    
+		    modType = new ModTypeData {amount = 2};
+		    
+		    modType.list.Add(0, new ModData{ name = "CMOD_TUR_0", flags = new List<string> { "stock" }});
+		    modType.list.Add(1, new ModData{ name = "CMOD_TUR_1"});
+		    
+		    modTypeDatas.Add(18, modType);
 	    }
 
         private static string GetModName(Vehicle vehicle, VehicleModType modtype, int index)
