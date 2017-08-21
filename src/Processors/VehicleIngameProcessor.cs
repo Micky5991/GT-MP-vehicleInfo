@@ -57,7 +57,8 @@ namespace GT_MP_vehicleInfo.Processors
 		        liveries = ProcessVehicleLiveries(veh),
 		        dimensions = GetVehicleDimensions(veh.Model.Hash),
 		        bones = GetVehicleBones(veh),
-		        neon = veh.Mods.HasNeonLights
+		        neon = veh.Mods.HasNeonLights,
+		        wheelType = veh.Mods.WheelType
 	        });
 	            
 	        veh.Delete();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using GTA;
 using GT_MP_vehicleInfo.Data;
 using Newtonsoft.Json;
 
@@ -25,6 +26,9 @@ namespace GT_MP_vehicleInfo.Processors
                     vehicle.dimensions = cache.dimensions;
                     vehicle.neon = cache.neon;
                     vehicle.bones = cache.bones;
+                    vehicle.wheelType = (int) cache.wheelType;
+
+                    vehicle.wheelTypeName = GetWheelTypeName(cache.wheelType);
                 }
                 catch (Exception e)
                 {
@@ -34,6 +38,24 @@ namespace GT_MP_vehicleInfo.Processors
             }
             
             
+        }
+
+        private static string GetWheelTypeName(VehicleWheelType wheelType)
+        {
+            var typeNames = new[]
+            {
+                "CMOD_WHE1_5",
+                "CMOD_WHE1_3",
+                "CMOD_WHE1_2",
+                "CMOD_WHE1_6",
+                "CMOD_WHE1_4",
+                "CMOD_WHE1_7",
+                "CMOD_WHE1_0",
+                "CMOD_WHE1_1",
+                "CMOD_WHE1_8",
+                "CMOD_WHE1_9"
+            };
+            return typeNames[(int) wheelType];
         }
         
     }

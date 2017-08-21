@@ -17,6 +17,9 @@ namespace GT_MP_vehicleInfo.Data
         public int vehicleClass;
         public string vehicleClassName;
         public string localizedVehicleClass;
+        public int wheelType;
+        public string wheelTypeName;
+        public string localizedWheelTypeName;
 
         public bool convertible;
         public bool electric;
@@ -51,6 +54,7 @@ namespace GT_MP_vehicleInfo.Data
             this.localizedManufacturer = Game.GetLocalizedString(this.manufacturerName);
             this.localizedName         = Game.GetLocalizedString(this.displayName);
             this.localizedVehicleClass = Game.GetLocalizedString("VEH_CLASS_" + this.vehicleClass);
+            this.localizedWheelTypeName = Game.GetLocalizedString("VEH_CLASS_" + this.vehicleClass);
 
             this.liveries?.Localize();
 

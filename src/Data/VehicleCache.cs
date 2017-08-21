@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GTA;
 
 namespace GT_MP_vehicleInfo.Data
 {
@@ -9,5 +10,6 @@ namespace GT_MP_vehicleInfo.Data
         public VehicleDimensions dimensions;
         public bool neon;
         public Dictionary<string, int> bones;
+        public VehicleWheelType wheelType;
     }
 }
