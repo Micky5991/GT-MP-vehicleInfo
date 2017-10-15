@@ -127,13 +127,14 @@ namespace GT_MP_vehicleInfo.Processors
 	    {
 		    SortedDictionary<int, ModTypeData> modTypeData = new SortedDictionary<int, ModTypeData>();
 		    veh.Mods.InstallModKit();
-		    foreach (var mod in veh.Mods.GetAllMods())
+		    for (int mod = 0; mod < 70; mod++)
 		    {
-			    var data = new ModTypeData {amount = mod.ModCount};
+			    var count = Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, veh.Handle, mod);
+			    var data = new ModTypeData {amount = count};
 
-			    for (int i = -1; i < mod.ModCount; i++)
+			    for (int i = -1; i < count; i++)
 			    {
-				    var name = GetModName(veh, mod.ModType, i);
+				    var name = GetModName(veh, (VehicleModType) mod, i);
 				    if(i == -1 && name == string.Empty) continue;
 
 				    var modObj = new ModData
@@ -141,10 +142,10 @@ namespace GT_MP_vehicleInfo.Processors
 					    name = name
 				    };
 				    data.list.Add(i, modObj);
-				    ApplyFlags(modObj, mod.ModType, mod.ModCount, i);
+				    ApplyFlags(modObj, (VehicleModType) mod, count, i);
 			    }
 
-			    modTypeData.Add((int) mod.ModType, data);
+			    modTypeData.Add(mod, data);
 		    }
 		    
 		    AddHardCodedMods(modTypeData);
@@ -155,19 +156,27 @@ namespace GT_MP_vehicleInfo.Processors
 	    public static void AddHardCodedMods(SortedDictionary<int, ModTypeData> modTypeDatas)
 	    {
 		    // LIGHTS
-		    var modType = new ModTypeData {amount = 2};
-		    
-		    modType.list.Add(0, new ModData{ name = "CMOD_LGT_0"});
-		    modType.list.Add(1, new ModData{ name = "CMOD_LGT_1"});
-		    
-		    modTypeDatas.Add(22, modType);
-		    
-		    modType = new ModTypeData {amount = 2};
-		    
-		    modType.list.Add(0, new ModData{ name = "CMOD_TUR_0", flags = new List<string> { "stock" }});
-		    modType.list.Add(1, new ModData{ name = "CMOD_TUR_1"});
-		    
-		    modTypeDatas.Add(18, modType);
+		    try
+		    {
+			    modTypeDatas.Remove(22);
+				var modType = new ModTypeData {amount = 2};
+				
+				modType.list.Add(0, new ModData{ name = "CMOD_LGT_0"});
+				modType.list.Add(1, new ModData{ name = "CMOD_LGT_1"});
+				
+				modTypeDatas.Add(22, modType);
+		    } catch {}
+
+		    try
+		    {
+			    modTypeDatas.Remove(18);
+			    var modType = new ModTypeData {amount = 2};
+
+			    modType.list.Add(0, new ModData {name = "CMOD_TUR_0", flags = new List<string> {"stock"}});
+			    modType.list.Add(1, new ModData {name = "CMOD_TUR_1"});
+
+			    modTypeDatas.Add(18, modType);
+		    } catch {}
 	    }
 
         private static string GetModName(Vehicle vehicle, VehicleModType modtype, int index)
