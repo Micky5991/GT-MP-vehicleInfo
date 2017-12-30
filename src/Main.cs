@@ -1,12 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Security.Policy;
+﻿using System.IO;
 using System.Windows.Forms;
 using GTA;
+using GTA.UI;
 using GT_MP_vehicleInfo.Processors;
-using Newtonsoft.Json;
-using Console = GTA.Console;
-using Hash = GTA.Native.Hash;
 
 namespace GT_MP_vehicleInfo
 {
@@ -18,14 +14,8 @@ namespace GT_MP_vehicleInfo
         public static string languageCode = "";
 
         public Main()
-        {
-            this.Tick += this.OnTick;    
+        {  
             this.KeyUp += OnKeyUp;
-        }
-
-        private void OnTick(object sender, EventArgs eventArgs)
-        {
-            Game.Player.WantedLevel = 0;
         }
 
         private void OnKeyUp(object sender, KeyEventArgs e)
@@ -50,7 +40,7 @@ namespace GT_MP_vehicleInfo
             {
                 if (string.IsNullOrEmpty(languageCode)) languageCode = Game.GetUserInput("de");
                 
-                GTA.UI.Screen.ShowNotification("~y~Starting...");
+                Notification.Show("~y~Starting...");
                 
                 VehicleLoader.LoadVehicles();
                 ModAssignProcessor.Process();
@@ -61,7 +51,7 @@ namespace GT_MP_vehicleInfo
                 OutputProcessor.OutputVehicleInfo();
                
                 
-                GTA.UI.Screen.ShowNotification("~g~Finished!");
+                Notification.Show("~g~Finished!");
             }
         }
         

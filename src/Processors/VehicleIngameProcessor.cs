@@ -127,20 +127,35 @@ namespace GT_MP_vehicleInfo.Processors
 	    {
 		    SortedDictionary<int, ModTypeData> modTypeData = new SortedDictionary<int, ModTypeData>();
 		    veh.Mods.InstallModKit();
-		    for (int mod = 0; mod < 70; mod++)
+		    for (int mod = 0; mod < 90; mod++)
 		    {
 			    var count = Function.Call<int>(Hash.GET_NUM_VEHICLE_MODS, veh.Handle, mod);
 			    var data = new ModTypeData {amount = count};
 
+			    Function.Call(Hash.REMOVE_VEHICLE_MOD, veh.Handle);
+			    var defMod = Function.Call<int>(Hash.GET_VEHICLE_MOD, veh.Handle, mod);
+
 			    for (int i = -1; i < count; i++)
 			    {
 				    var name = GetModName(veh, (VehicleModType) mod, i);
-				    if(i == -1 && name == string.Empty) continue;
-
+				    
+				    if(i == -1 && i != defMod && name == string.Empty) continue;
+				    
+				    if (i == -1 && name == string.Empty)
+				    {
+					    name = "CMOD_DEF_0";
+				    } 
+				    
 				    var modObj = new ModData
 				    {
 					    name = name
 				    };
+
+				    if (i == defMod)
+				    {
+					    modObj.flags.Add("stock");
+				    }
+				    
 				    data.list.Add(i, modObj);
 				    ApplyFlags(modObj, (VehicleModType) mod, count, i);
 			    }
@@ -177,6 +192,34 @@ namespace GT_MP_vehicleInfo.Processors
 
 			    modTypeDatas.Add(18, modType);
 		    } catch {}
+
+		    try
+		    {
+			    modTypeDatas.Remove(69);
+			    var modType = new ModTypeData {amount = 5};
+
+			    modType.list.Add(0, new ModData {name = "CMOD_WIN_0", flags = new List<string> {"stock"}});
+			    modType.list.Add(1, new ModData {name = "CMOD_WIN_4"});
+			    modType.list.Add(2, new ModData {name = "CMOD_WIN_3"});
+			    modType.list.Add(3, new ModData {name = "CMOD_WIN_2"});
+			    modType.list.Add(4, new ModData {name = "CMOD_WIN_1"});
+
+			    modTypeDatas.Add(69, modType);
+		    } catch {}
+		    
+		    try
+		    {
+			    modTypeDatas.Remove(62);
+			    var modType = new ModTypeData {amount = 5};
+
+			    modType.list.Add(0, new ModData {name = "CMOD_PLA_0", flags = new List<string> {"stock"}});
+			    modType.list.Add(1, new ModData {name = "CMOD_PLA_1"});
+			    modType.list.Add(2, new ModData {name = "CMOD_PLA_2"});
+			    modType.list.Add(3, new ModData {name = "CMOD_PLA_3"});
+			    modType.list.Add(4, new ModData {name = "CMOD_PLA_4"});
+
+			    modTypeDatas.Add(62, modType);
+		    } catch {}
 	    }
 
         private static string GetModName(Vehicle vehicle, VehicleModType modtype, int index)
@@ -203,7 +246,7 @@ namespace GT_MP_vehicleInfo.Processors
 
 	    private static void ApplyFlags(ModData mod, VehicleModType modtype, int count, int index)
 	    {
-		    if(index == -1) mod.flags.Add("stock");
+		    //if(index == -1) mod.flags.Add("stock");
 		    switch (modtype)
 		    {
 			    case VehicleModType.FrontWheel:
