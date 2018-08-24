@@ -95,8 +95,8 @@ This ScriptHookV.NET3 script is intended to generate information about all vehic
 
 Description | Last updated | Download
 --- | --- | ---
-Without localization* | 31st March 2018 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-ssass/vehicleInfo.noloc.json)
-Without listing** | 31st March 2018 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-ssass/vehicleInfo.nolist.json)
+Without localization* | 30th July 2018 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-afterhour/vehicleInfo.noloc.json)
+Without listing** | 30th July 2018 | [Click here](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-afterhour/vehicleInfo.nolist.json)
 
 *This version can be used if you want to create your own gametexts with `API.getGameText(string name);` [GT-MP Wiki entry](https://wiki.gt-mp.net/index.php?title=GetGameText)
 
@@ -106,14 +106,14 @@ Without listing** | 31st March 2018 | [Click here](https://github.com/Micky5991/
 
 Language | Last updated | Single file | Multiple files
 --- | --- | --- | ---:
-English | 31st March 2018 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-ssass/vehicleInfo-en.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-ssass/vehicleInfo-en.zip)
-German | 31st March 2018 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-ssass/vehicleInfo-de.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-ssass/vehicleInfo-de.zip)
+English | 30th July 2018 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-afterhour/vehicleInfo-en.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-afterhour/vehicleInfo-en.zip)
+German | 30th July 2018 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-afterhour/vehicleInfo-de.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-afterhour/vehicleInfo-de.zip)
 French | 21st August 2017 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.0-sr/vehicleInfo-fr.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.0-sr/vehicleInfo-fr.zip)
 
 If you want to look into the structure of this file, we also have an indented version:
 
 **DO NOT USE THIS IN AN PRODUCTIVE ENVIRONMENT!**
-[Download](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-ssass/vehicleInfo.ind.json)
+[Download](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-afterhour/vehicleInfo.ind.json)
 
 ## Installation
 ### Requirements
