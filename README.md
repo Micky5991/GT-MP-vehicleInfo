@@ -109,6 +109,7 @@ Language | Last updated | Single file | Multiple files
 English | 18th December 2018 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-en.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-en.zip)
 German | 18th December 2018 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-de.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-de.zip)
 French | 18th December 2018 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-fr.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-fr.zip)
+Brazilian Portuguese | 28th January 2019 | [JSON](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-pt-br.full.json) | [ZIP](https://github.com/Micky5991/GT-MP-vehicleInfo/releases/download/V1.4.1-aw/vehicleInfo-pt-br.zip)
 
 If you want to look into the structure of this file, we also have an indented version:
 
